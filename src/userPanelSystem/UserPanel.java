@@ -1,14 +1,12 @@
 package userPanelSystem;
 
+import manager.DataManager;
+import payment.CardPayment;
+
 import java.util.Scanner;
 
 public class UserPanel {
-    // 1. selectOrder
-//    public void selectOrder() {
-//        System.out.println("\n=== 주문 시작 ===");
-//        System.out.println("주문을 시작합니다.");
-//    }
-
+    private static final MenuDisplay menuDisplay = new MenuDisplay();
     private Language language;
 
     // 언어 선택 메서드
@@ -38,11 +36,15 @@ public class UserPanel {
         return language;
     }
 
-    // 1. selectOrder()
-    public void selectOrder() {
-        // CardPayment cardPayment = new CardPayment();
+    // 1. startOrder()
+    public static void startOrder() {
+        CardPayment cardPayment = new CardPayment();
+        // UserPanel customer = new UserPanel();
 
         System.out.println("=== 버거 키오스크 시작 ===");
+        System.out.println("\n=== 주문 시작 ===");
+        System.out.println("주문을 시작합니다.");
+        menuDisplay.requestMenuList();
 
         // 스윙 화면에서 메뉴 띄움
 
