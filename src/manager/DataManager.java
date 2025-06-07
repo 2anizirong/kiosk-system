@@ -54,7 +54,7 @@ public class DataManager {
             if (menu.getId() == menuId) {
                 return menu.getPrice();
             }
-        }
-        return -1;
+        } 
+        return -1; // ID가 없을 경우
     }
 }
