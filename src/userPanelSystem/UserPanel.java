@@ -1,12 +1,12 @@
 package userPanelSystem;
 
+import dataManager.DataManager;
 import payment.CardPayment;
 
 import java.util.Scanner;
 
 public class UserPanel {
     private static MenuDisplay menuDisplay = new MenuDisplay();
-
     private Language language;
 
     // 언어 선택 메서드
@@ -36,8 +36,8 @@ public class UserPanel {
         return language;
     }
 
-    // 1. selectOrder()
-    public static void selectOrder() {
+    // 1. startOrder()
+    public static void startOrder() {
         CardPayment cardPayment = new CardPayment();
         // UserPanel customer = new UserPanel();
 
@@ -46,10 +46,19 @@ public class UserPanel {
         System.out.println("주문을 시작합니다.");
         menuDisplay.requestMenuList();
 
-        // 총 가격 표시 후 결제로 이동
-        int amount = totalPrice(menuId);
-        System.out.println("\n총 주문금액: " + amount);        // 추후 수정
+        // 스윙 화면에서 메뉴 띄움
 
-        cardPayment.selectCardPayment(amount);
+        // 메뉴 선택
+
+        // 장바구니 넣음
+
+        // '장바구니'에서 가격 계산
+
+//        // 총 가격 표시 후 결제로 이동
+//        int amount = 190; // 테스트 위해서 하드코딩
+//        // int amount = totalPrice(menuId);
+//        System.out.println("\n총 주문금액: " + amount);        // 추후 수정
+
+        // cardPayment.selectCardPayment(amount);
     }
 }
