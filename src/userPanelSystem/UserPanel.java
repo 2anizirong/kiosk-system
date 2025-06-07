@@ -1,8 +1,5 @@
 package userPanelSystem;
 
-import dataManager.DataManager;
-import payment.CardPayment;
-
 import java.util.Scanner;
 
 public class UserPanel {

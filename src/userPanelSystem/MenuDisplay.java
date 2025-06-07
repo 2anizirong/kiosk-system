@@ -1,6 +1,6 @@
 package userPanelSystem;
 
-import dataManager.DataManager;
+import manager.DataManager;
 import menu.Menu;
 
 public class MenuDisplay {

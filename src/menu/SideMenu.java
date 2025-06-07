@@ -1,6 +1,6 @@
 package menu;
 
-public class SideMenu {
+public class SideMenu implements Menu {
     private int id;
     private String menuName;
     private String description;
