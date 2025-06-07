@@ -6,8 +6,8 @@ import menu.Menu;
 public class MenuDisplay {
     private final DataManager dataManager;
 
-    public MenuDisplay() {
-        this.dataManager = new DataManager();
+    public MenuDisplay(DataManager dataManager) {
+        this.dataManager = dataManager;
     }
     // private Scanner scanner = new Scanner(System.in);
 
