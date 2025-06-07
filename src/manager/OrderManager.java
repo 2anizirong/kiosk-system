@@ -2,7 +2,6 @@ package manager;
 
 import cart.Cart;
 import menu.Menu;
-import cart.Cart;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,6 +10,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class OrderManager {
     private static AtomicInteger orderIdGenerator = new AtomicInteger(1);
     private static Map<Integer, OrderItem> currentOrders = new HashMap<>();
+    private static Cart cart = new Cart();
 
     // 주문 ID 생성
     public static int CreateOrderId() {
@@ -38,17 +38,17 @@ public class OrderManager {
     }
 
     // 주문을 장바구니에 추가
-//    public static void sendToCart(Cart cartManager) {
-//        for (OrderItem item : currentOrders.values()) {
-//            cartManager.addToCart(item.toItem());
-//        }
-//        currentOrders.clear(); // 주문 비우기
-//    }
+    public static void sendToCart() {
+        for (OrderItem item : currentOrders.values()) {
+            cart.addToCart(item);
+        }
+        currentOrders.clear(); // 주문 비우기
+    }
 
     // 내부 OrderItem 클래스
-    private static class OrderItem {
+    public static class OrderItem {
         private int menuId;
-        private String name;
+        public String name;
         private int price;
         private boolean isSet;
 
@@ -73,6 +73,10 @@ public class OrderManager {
         public void setDrink(String name, int price) {
             this.drinkName = name;
             this.drinkPrice = price;
+        }
+
+        public int getPrice() {
+            return price + sidePrice + drinkPrice;
         }
     }
 }
