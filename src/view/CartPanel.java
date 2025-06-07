@@ -2,6 +2,7 @@ package view;
 
 import menu.Menu;
 import cart.Cart;
+import manager.OrderManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,11 +21,11 @@ public class CartPanel extends JPanel {
         JPanel cartItemPanel = new JPanel();
         cartItemPanel.setLayout(new BoxLayout(cartItemPanel, BoxLayout.Y_AXIS));
 
-        List<Menu> cartItems = cart.returnCartItemList();
+        List<OrderManager.OrderItem> cartItems = cart.returnCartItemList();
         if (cartItems.isEmpty()) {
             cartItemPanel.add(new JLabel("장바구니가 비어 있습니다."));
         } else {
-            for (Menu item : cartItems) {
+            for (OrderManager.OrderItem item : cartItems) {
                 JLabel itemLabel = new JLabel("• " + item);
                 itemLabel.setFont(new Font("SansSerif", Font.PLAIN, 16));
                 itemLabel.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
