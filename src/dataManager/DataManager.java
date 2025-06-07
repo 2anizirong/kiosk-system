@@ -2,7 +2,7 @@ package dataManager;
 
 import menu.Menu;
 
-public class dataManager {
+public class DataManager {
     private Menu[] menuList;
 
     public Menu[] getMenuList() {

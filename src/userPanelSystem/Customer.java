@@ -1,8 +1,11 @@
 package userPanelSystem;
 
+import dataManager.DataManager;
 import payment.CardPayment;
 
 import java.util.Scanner;
+
+// 없어야 됨 지우기
 
 public class Customer {
     private Language language;
@@ -44,7 +47,8 @@ public class Customer {
         customer.selectOrder();
 
         // 총 가격 표시 후 결제로 이동
-        int amount = totalPrice(menuId);
+        int amount = 190; // 테스트 위해서 하드코딩
+        // int amount = totalPrice(menuId);
         System.out.println("\n총 주문금액: " + amount);        // 추후 수정
 
         cardPayment.selectCardPayment(amount);

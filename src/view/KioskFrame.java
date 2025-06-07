@@ -9,7 +9,7 @@ public class KioskFrame extends JFrame {
 
     public KioskFrame() {
         setTitle("키오스크");
-        setSize(800, 600);
+        setSize(595, 842);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null); // 화면 중앙
 
