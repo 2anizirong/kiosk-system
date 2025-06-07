@@ -1,14 +1,13 @@
 package manager;
 
 import menu.Menu;
+import cart.Cart;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class Ordermanager {
+public class OrderManager {
     private static AtomicInteger orderIdGenerator = new AtomicInteger(1);
     private static Map<Integer, OrderItem> currentOrders = new HashMap<>();
 
@@ -23,10 +22,15 @@ public class Ordermanager {
         currentOrders.put(orderId, item);
     }
 
-    // 주문을 장바구니에 추가
-    public static void sendToCart(Cart cartManager) {
+    public static void sendToCart(Cart cart) {
         for (OrderItem item : currentOrders.values()) {
-            cartManager.addToCart(item.toItem());
+            Menu menuToAdd;
+            if (item.isSet) {
+                menuToAdd = new Menu(item.menuId, item.name + " (세트)", item.price);
+            } else {
+                menuToAdd = new Menu(item.menuId, item.name, item.price);
+            }
+            cart.addToCart(menuToAdd);
         }
         currentOrders.clear(); // 주문 비우기
     }
