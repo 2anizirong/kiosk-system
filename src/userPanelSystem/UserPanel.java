@@ -6,7 +6,7 @@ import payment.CardPayment;
 import java.util.Scanner;
 
 public class UserPanel {
-    private static MenuDisplay menuDisplay = new MenuDisplay();
+    private static final MenuDisplay menuDisplay = new MenuDisplay();
     private Language language;
 
     // 언어 선택 메서드
