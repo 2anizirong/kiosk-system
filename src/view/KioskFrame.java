@@ -2,9 +2,11 @@ package view;
 
 import cart.Cart;
 import manager.DataManager;
+import manager.OrderManager;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.function.Supplier;
 
 public class KioskFrame extends JFrame {
     private CardLayout cardLayout;
@@ -21,6 +23,7 @@ public class KioskFrame extends JFrame {
 
         DataManager dataManager = new DataManager();
         Cart cart = new Cart();
+        OrderManager.setCart(cart);
 
         mainPanel.add(new MenuPanel(this, dataManager), "Menu");
         mainPanel.add(new CartPanel(this, cart), "Cart");
@@ -34,4 +37,17 @@ public class KioskFrame extends JFrame {
     public void showPanel(String name) {
         cardLayout.show(mainPanel, name);
     }
+
+    public void refreshCartPanel(Supplier<JPanel> panelSupplier, String name) {
+        Component[] components = mainPanel.getComponents();
+        for (Component c : components) {
+            if (c.getClass().getSimpleName().equals(name)) {
+                mainPanel.remove(c);
+                break;
+            }
+        }
+        mainPanel.add(panelSupplier.get(), name);
+        showPanel(name);
+    }
+
 }

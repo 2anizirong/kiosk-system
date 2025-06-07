@@ -8,9 +8,17 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class OrderManager {
-    private static AtomicInteger orderIdGenerator = new AtomicInteger(1);
+    private static final AtomicInteger orderIdGenerator = new AtomicInteger(1);
     private static Map<Integer, OrderItem> currentOrders = new HashMap<>();
-    private static Cart cart = new Cart();
+    private static Cart cart;
+
+    public static void setCart(Cart sharedCart) {
+        cart = sharedCart;
+    }
+
+    public static Cart getCart() {
+        return cart;
+    }
 
     // 주문 ID 생성
     public static int CreateOrderId() {
@@ -77,6 +85,15 @@ public class OrderManager {
 
         public int getPrice() {
             return price + sidePrice + drinkPrice;
+        }
+
+        @Override
+        public String toString() {
+            StringBuilder sb = new StringBuilder(name);
+            if (sideName != null) sb.append(" + ").append(sideName);
+            if (drinkName != null) sb.append(" + ").append(drinkName);
+            sb.append(" = ").append(getPrice()).append("원");
+            return sb.toString();
         }
     }
 }

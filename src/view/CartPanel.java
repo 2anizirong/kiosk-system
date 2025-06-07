@@ -43,7 +43,10 @@ public class CartPanel extends JPanel {
         add(scrollPane, BorderLayout.CENTER);
 
         JButton nextButton = new JButton("결제 화면으로");
-        nextButton.addActionListener(e -> frame.showPanel("Payment"));
+        nextButton.addActionListener(e ->
+                frame.refreshCartPanel(() -> new PaymentPanel(frame, OrderManager.getCart()), "Payment")
+        );
+
         add(nextButton, BorderLayout.SOUTH);
     }
 }

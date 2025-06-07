@@ -4,36 +4,35 @@ public class CardPayment {
     private static final PaymentService paymentService = new PaymentService();
 
     // 33. selectCardPayment()
-    public static void selectCardPayment(int amount, String cardNumber, Runnable onSuccess, Runnable onFailure) {
-        cardRecognition(amount, cardNumber, onSuccess, onFailure);
+    public static boolean selectCardPayment(int amount, String cardNumber) {
+        if (!cardRecognition(cardNumber)) {
+            return false;
+        }
+        return paymentConfirmation(cardNumber, amount);
     }
 
     // 36. cardRecognition()
-    public static void cardRecognition(int amount, String cardNumber, Runnable onSuccess, Runnable onFailure)
+    public static boolean cardRecognition(String cardNumber)
     {
-        if (cardNumber != null && cardNumber.length() == 16) {
-            paymentConfirmation(cardNumber, amount, onSuccess, onFailure);
-        } else {
-            System.out.println("잘못된 카드번호입니다.");
-            if (onFailure != null) onFailure.run();
-        }
+        // 카드 번호 오류
+        return cardNumber != null && cardNumber.length() == 16;
     }
 
     // 37. paymentConfirmation()
-    public static void paymentConfirmation(String cardNumber, int amount, Runnable onSuccess, Runnable onFailure) {
-        System.out.println("결제 승인 중...");
+    public static boolean paymentConfirmation(String cardNumber, int amount) {
         try {
             Thread.sleep(3000); // 3초 대기 (시뮬레이션)
             if (paymentService.paymentConfirmation(cardNumber, amount)) {
                 paymentService.savePaymentHistory(cardNumber, amount);
                 printReceipt();
-                if (onSuccess != null) onSuccess.run();
+                return true;
             } else {
-                System.out.println("카드 결제 실패!");
-                if (onFailure != null) onFailure.run();
+                System.err.println("카드 결제 실패!");
+                return false;
             }
         } catch (InterruptedException e) {
-            System.out.println("결제 처리 중 오류가 발생했습니다.");
+            System.err.println("결제 처리 중 오류가 발생했습니다.");
+            return false;
         }
     }
 

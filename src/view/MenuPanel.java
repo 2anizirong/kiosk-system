@@ -72,7 +72,9 @@ public class MenuPanel extends JPanel {
         add(scrollPane, BorderLayout.CENTER);
 
         JButton nextButton = new JButton("장바구니로 이동");
-        nextButton.addActionListener(e -> frame.showPanel("Cart"));
+        nextButton.addActionListener(e ->
+                frame.refreshCartPanel(() -> new CartPanel(frame, OrderManager.getCart()), "Cart")
+        );
         add(nextButton, BorderLayout.SOUTH);
     }
 
