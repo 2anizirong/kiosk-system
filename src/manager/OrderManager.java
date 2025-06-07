@@ -25,6 +25,10 @@ public class OrderManager {
         return orderIdGenerator.getAndIncrement();
     }
 
+    public static void clearOrders() {
+        currentOrders.clear();
+    }
+
     // 세트 여부와 함께 주문 저장
     public static void setSet(int orderId, Menu menu, boolean isSet) {
         OrderItem item = new OrderItem(menu.getId(), menu.getMenuName(), menu.getPrice(), isSet);

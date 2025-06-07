@@ -25,6 +25,7 @@ public class KioskFrame extends JFrame {
         Cart cart = new Cart();
         OrderManager.setCart(cart);
 
+        mainPanel.add(new StartPanel(this), "Start");
         mainPanel.add(new MenuPanel(this, dataManager), "Menu");
         mainPanel.add(new CartPanel(this, cart), "Cart");
         mainPanel.add(new PaymentPanel(this, cart), "Payment");
@@ -32,10 +33,19 @@ public class KioskFrame extends JFrame {
 
         add(mainPanel);
         setVisible(true);
+        showPanel("Start");
     }
 
     public void showPanel(String name) {
         cardLayout.show(mainPanel, name);
+
+        if (name.equals("Result")) {
+            for (Component c : mainPanel.getComponents()) {
+                if (c instanceof ResultPanel resultPanel) {
+                    resultPanel.refresh();
+                }
+            }
+        }
     }
 
     public void refreshCartPanel(Supplier<JPanel> panelSupplier, String name) {

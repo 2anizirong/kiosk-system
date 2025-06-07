@@ -10,6 +10,10 @@ public class Cart {
     public Cart() {
     }
 
+    public void clear() {
+        cartItems.clear();
+    }
+
     public void addToCart(OrderItem item){
         cartItems.add(item);
         System.out.println(item.name + " 이(가) 장바구니에 추가되었습니다.");

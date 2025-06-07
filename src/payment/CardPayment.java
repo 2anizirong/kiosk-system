@@ -21,7 +21,7 @@ public class CardPayment {
     // 37. paymentConfirmation()
     public static boolean paymentConfirmation(String cardNumber, int amount) {
         try {
-            Thread.sleep(3000); // 3초 대기 (시뮬레이션)
+            Thread.sleep(1000); // 1초 대기
             if (paymentService.paymentConfirmation(cardNumber, amount)) {
                 paymentService.savePaymentHistory(cardNumber, amount);
                 printReceipt();
