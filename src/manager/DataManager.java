@@ -1,7 +1,9 @@
 package manager;
 
+import menu.DrinkMenu;
 import menu.MainMenu;
 import menu.Menu;
+import menu.SideMenu;
 
 public class DataManager {
     private Menu[] mainMenus;

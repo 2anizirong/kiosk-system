@@ -6,9 +6,10 @@ public class DrinkMenu implements Menu {
     private String description;
     private int price;
 
-    public DrinkMenu(int id, String menuName, int price) {
+    public DrinkMenu(int id, String menuName, String description, int price) {
         this.id = id;
         this.menuName = menuName;
+        this.description = description;
         this.price = price;
     }
 
