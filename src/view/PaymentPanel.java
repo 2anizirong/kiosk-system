@@ -1,10 +1,12 @@
 package view;
 
+import cart.Cart;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class PaymentPanel extends JPanel {
-    public PaymentPanel(KioskFrame frame) {
+    public PaymentPanel(KioskFrame frame, Cart cart) {
         setLayout(new BorderLayout());
 
         JLabel label = new JLabel("결제", SwingConstants.CENTER);

@@ -1,5 +1,6 @@
 package view;
 
+import cart.Cart;
 import manager.DataManager;
 
 import javax.swing.*;
@@ -19,10 +20,11 @@ public class KioskFrame extends JFrame {
         mainPanel = new JPanel(cardLayout);
 
         DataManager dataManager = new DataManager();
+        Cart cart = new Cart();
 
         mainPanel.add(new MenuPanel(this, dataManager), "Menu");
-        mainPanel.add(new CartPanel(this), "Cart");
-        mainPanel.add(new PaymentPanel(this), "Payment");
+        mainPanel.add(new CartPanel(this, cart), "Cart");
+        mainPanel.add(new PaymentPanel(this, cart), "Payment");
         mainPanel.add(new ResultPanel(this), "Result");
 
         add(mainPanel);
