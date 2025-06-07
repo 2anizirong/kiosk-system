@@ -1,6 +1,6 @@
 package view;
 
-import dataManager.DataManager;
+import manager.DataManager;
 
 import javax.swing.*;
 import java.awt.*;

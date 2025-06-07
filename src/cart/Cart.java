@@ -23,7 +23,7 @@ public class Cart {
         return total;
     }
 
-    List<Menu> returnCartItemList(){
+    public List<Menu> returnCartItemList(){
             return new ArrayList<>(cartItems);
     }
 }

@@ -1,14 +1,15 @@
 package menu;
 
-public class MainMenu {
+public class MainMenu implements Menu {
     private int id;
     private String menuName;
     private String description;
     private int price;
 
-    public MainMenu(int id, String menuName, int price) {
+    public MainMenu(int id, String menuName, String description, int price) {
         this.id = id;
         this.menuName = menuName;
+        this.description = description;
         this.price = price;
     }
 
