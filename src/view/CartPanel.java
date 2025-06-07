@@ -1,6 +1,7 @@
 package view;
 
 import menu.Menu;
+import cart.Cart;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,7 +9,7 @@ import java.awt.*;
 import java.util.List;
 
 public class CartPanel extends JPanel {
-    public CartPanel(KioskFrame frame) {
+    public CartPanel(KioskFrame frame, Cart cart) {
         setLayout(new BorderLayout());
 
         JLabel title = new JLabel("장바구니", SwingConstants.CENTER);
@@ -30,6 +31,12 @@ public class CartPanel extends JPanel {
                 cartItemPanel.add(itemLabel);
             }
         }
+
+        // 총 금액 출력
+        JLabel totalLabel = new JLabel("총 금액: " + cart.returnTotalPrice() + "원");
+        totalLabel.setFont(new Font("SansSerif", Font.BOLD, 18));
+        totalLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        cartItemPanel.add(totalLabel);
 
         JScrollPane scrollPane = new JScrollPane(cartItemPanel);
         add(scrollPane, BorderLayout.CENTER);

@@ -5,17 +5,17 @@ import java.util.List;
 import menu.Menu; // Item 클래스가 menu 패키지에 있다고 가정
 
 public class Cart {
-    private List<Menu> cartItems = new ArrayList<Menu>();
+    private final List<Menu> cartItems = new ArrayList<>();
 
     public Cart() {
     }
 
     void addToCart(Menu menu){
         cartItems.add(menu);
-        System.out.println(menu.getName() + " 이(가) 장바구니에 추가되었습니다.");
+        System.out.println(menu.getMenuName() + " 이(가) 장바구니에 추가되었습니다.");
     }
 
-    int returnTotalPrice() {
+    public int returnTotalPrice() {
         int total = 0;
         for (Menu item : cartItems) {
             total += item.getPrice();
@@ -23,7 +23,7 @@ public class Cart {
         return total;
     }
 
-    public List<Menu> returnCartItemList(){
-            return new ArrayList<>(cartItems);
+    public List<Menu> returnCartItemList() {
+        return new ArrayList<>(cartItems); // 깊은 복사
     }
 }

@@ -60,7 +60,7 @@ public class MenuPanel extends JPanel {
                     OrderManager.setSet(orderID, menu, false);
                 }
 
-                //OrderManager.sendToCart();
+                // OrderManager.sendToCart();
             });
 
             menuListPanel.add(menuButton);
