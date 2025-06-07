@@ -7,7 +7,7 @@ public class ResultPanel extends JPanel {
     public ResultPanel(KioskFrame frame) {
         setLayout(new BorderLayout());
 
-        JLabel label = new JLabel("✅ 주문 완료!", SwingConstants.CENTER);
+        JLabel label = new JLabel("주문 완료!", SwingConstants.CENTER);
         label.setFont(new Font("SansSerif", Font.BOLD, 24));
         add(label, BorderLayout.CENTER);
 

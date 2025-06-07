@@ -7,7 +7,7 @@ public class PaymentPanel extends JPanel {
     public PaymentPanel(KioskFrame frame) {
         setLayout(new BorderLayout());
 
-        JLabel label = new JLabel("💳 결제 화면", SwingConstants.CENTER);
+        JLabel label = new JLabel("결제", SwingConstants.CENTER);
         label.setFont(new Font("SansSerif", Font.BOLD, 24));
         add(label, BorderLayout.CENTER);
 

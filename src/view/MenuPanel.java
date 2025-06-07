@@ -11,12 +11,12 @@ public class MenuPanel extends JPanel {
     public MenuPanel(KioskFrame frame, DataManager dataManager) {
         setLayout(new BorderLayout());
 
-        JLabel titleLabel = new JLabel("🍔 메뉴 선택 화면", SwingConstants.CENTER);
+        JLabel titleLabel = new JLabel("메뉴 선택", SwingConstants.CENTER);
         titleLabel.setFont(new Font("SansSerif", Font.BOLD, 24));
         add(titleLabel, BorderLayout.NORTH);
 
         // 메뉴 리스트 받아오기
-        Menu[] menuList = dataManager.getMenuList();
+        Menu[] menuList = dataManager.getMainMenus();
 
         // 메뉴를 보여줄 패널
         JPanel menuListPanel = new JPanel();
@@ -60,7 +60,7 @@ public class MenuPanel extends JPanel {
                     OrderManager.setSet(orderID, menu, false);
                 }
 
-                OrderManager.sendToCart();
+                //OrderManager.sendToCart();
             });
 
             menuListPanel.add(menuButton);
