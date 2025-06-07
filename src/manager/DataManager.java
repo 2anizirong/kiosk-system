@@ -1,4 +1,4 @@
-package dataManager;
+package manager;
 
 import menu.Menu;
 import menu.MenuItem;
