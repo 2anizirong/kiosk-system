@@ -1,4 +1,4 @@
-package view;
+package userPanelSystem.view;
 
 import cart.Cart;
 import payment.CardPayment;
@@ -16,7 +16,7 @@ public class PaymentPanel extends JPanel {
         setLayout(new BorderLayout());
 
         // 제목
-        JLabel label = new JLabel("💳 결제 화면", SwingConstants.CENTER);
+        JLabel label = new JLabel("결제 화면", SwingConstants.CENTER);
         label.setFont(new Font("SansSerif", Font.BOLD, 24));
         add(label, BorderLayout.NORTH);
 
@@ -56,10 +56,22 @@ public class PaymentPanel extends JPanel {
 
         add(centerPanel, BorderLayout.CENTER);
 
+        // 버튼 패널
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 10));
+
         // 결제 버튼
         JButton nextButton = new JButton("카드로 결제");
         nextButton.addActionListener(e -> handlePayment(frame));
-        add(nextButton, BorderLayout.SOUTH);
+        buttonPanel.add(nextButton);
+
+        // 돌아가기 버튼
+        JButton backButton = new JButton("돌아가기");
+        backButton.addActionListener(e -> frame.showPanel("Menu"));
+        buttonPanel.add(backButton);
+
+        // 버튼 패널을 SOUTH에 추가
+        add(buttonPanel, BorderLayout.SOUTH);
     }
 
     private void updateAmountLabel() {

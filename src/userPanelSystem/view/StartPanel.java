@@ -1,4 +1,4 @@
-package view;
+package userPanelSystem.view;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,7 +11,7 @@ public class StartPanel extends JPanel {
 
     public StartPanel(KioskFrame frame) {
         try {
-            backgroundImage = ImageIO.read(new File("src/view/start.png"));
+            backgroundImage = ImageIO.read(new File("src/userPanelSystem/view/start.png"));
         } catch (IOException e) {
             System.err.println("배경 이미지 로드 실패: " + e.getMessage());
         }

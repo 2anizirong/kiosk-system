@@ -1,6 +1,5 @@
-package view;
+package userPanelSystem.view;
 
-import menu.Menu;
 import cart.Cart;
 import manager.OrderManager;
 
@@ -42,11 +41,23 @@ public class CartPanel extends JPanel {
         JScrollPane scrollPane = new JScrollPane(cartItemPanel);
         add(scrollPane, BorderLayout.CENTER);
 
+        // 버튼 패널
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 10)); // 가운데 정렬 + 간격
+
+        // 결제 버튼
         JButton nextButton = new JButton("결제 화면으로");
         nextButton.addActionListener(e ->
                 frame.refreshCartPanel(() -> new PaymentPanel(frame, OrderManager.getCart()), "Payment")
         );
+        buttonPanel.add(nextButton);
 
-        add(nextButton, BorderLayout.SOUTH);
+        // 돌아가기 버튼
+        JButton backButton = new JButton("돌아가기");
+        backButton.addActionListener(e -> frame.showPanel("Menu"));
+        buttonPanel.add(backButton);
+
+        // 버튼 패널을 SOUTH에 추가
+        add(buttonPanel, BorderLayout.SOUTH);
     }
 }

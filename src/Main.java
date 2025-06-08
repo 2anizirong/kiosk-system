@@ -1,4 +1,4 @@
-import view.KioskFrame;
+import userPanelSystem.view.KioskFrame;
 
 import javax.swing.*;
 

@@ -1,4 +1,4 @@
-package view;
+package userPanelSystem.view;
 
 import manager.OrderManager;
 
