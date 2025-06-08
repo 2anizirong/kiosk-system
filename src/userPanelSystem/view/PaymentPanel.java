@@ -8,9 +8,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class PaymentPanel extends JPanel {
-    private int totalAmount;
-    private JComboBox<String> discountBox;
-    private JLabel amountLabel;
+    private final int totalAmount;
+    private final JComboBox<String> discountBox;
+    private final JLabel amountLabel;
 
     public PaymentPanel(KioskFrame frame, Cart cart) {
         setLayout(new BorderLayout());
@@ -106,6 +106,9 @@ public class PaymentPanel extends JPanel {
         if (success) {
             JOptionPane.showMessageDialog(this, "결제가 완료되었습니다.");
             frame.showPanel("Result");
+        }
+        else if (totalAmount <= 0) {
+            JOptionPane.showMessageDialog(this, "주문을 먼저 담아주세요");
         } else {
             JOptionPane.showMessageDialog(this, "결제 실패! 다시 시도해주세요.");
         }

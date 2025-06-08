@@ -20,7 +20,7 @@ public class CartPanel extends JPanel {
         JPanel cartItemPanel = new JPanel();
         cartItemPanel.setLayout(new BoxLayout(cartItemPanel, BoxLayout.Y_AXIS));
 
-        List<OrderManager.OrderItem> cartItems = cart.returnCartItemList();
+        List<OrderManager.OrderItem> cartItems = cart.returnCartItemList(); 
         if (cartItems.isEmpty()) {
             cartItemPanel.add(new JLabel("장바구니가 비어 있습니다."));
         } else {
@@ -38,8 +38,7 @@ public class CartPanel extends JPanel {
         totalLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         cartItemPanel.add(totalLabel);
 
-        JScrollPane scrollPane = new JScrollPane(cartItemPanel);
-        add(scrollPane, BorderLayout.CENTER);
+        add(cartItemPanel, BorderLayout.CENTER);
 
         // 버튼 패널
         JPanel buttonPanel = new JPanel();

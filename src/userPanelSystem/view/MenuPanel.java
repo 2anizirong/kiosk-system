@@ -29,8 +29,10 @@ public class MenuPanel extends JPanel {
                     menu.getPrice());
 
             JButton menuButton = new JButton(buttonText);
-            menuButton.setFont(new Font("SansSerif", Font.PLAIN, 16));
-            menuButton.setAlignmentX(Component.LEFT_ALIGNMENT);
+            menuButton.setFont(new Font("SansSerif", Font.PLAIN, 20));
+            menuButton.setPreferredSize(new Dimension(500, 60));
+            menuButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+
             menuButton.addActionListener(e -> {
                 int result = JOptionPane.showConfirmDialog(
                         this,
@@ -64,12 +66,11 @@ public class MenuPanel extends JPanel {
             });
 
             menuListPanel.add(menuButton);
-            menuListPanel.add(Box.createRigidArea(new Dimension(0, 10))); // 간격
+            menuListPanel.add(Box.createRigidArea(new Dimension(0, 20))); // 간격
 
         }
 
-        JScrollPane scrollPane = new JScrollPane(menuListPanel);
-        add(scrollPane, BorderLayout.CENTER);
+        add(menuListPanel, BorderLayout.CENTER);
 
         JButton nextButton = new JButton("장바구니로 이동");
         nextButton.addActionListener(e ->
